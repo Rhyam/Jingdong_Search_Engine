@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!--设置背景-->
+    <style type="text/css">
+        body
+        {
+            background-image: url(../static/background2.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        a, a:hover
+        {
+            text-decoration: none;
+            color: #CD5C5C;
+        }
+        .box{ margin:0 auto; width:518px; height:50px;}
+        .get{ margin:0 auto; width:400px; height:200px;}
+        .space{ margin:0 auto; width: 500px; height: 28px;}
+    </style>
+</head>
+<body>
+    <div class="space">
+    </div>
+    <h1 style="text-align: center"><font size='7'>东川路杂货铺</font></h1>
+    <div class="space">
+    </div>
+    <!--显示两个链接-->
+    <div class="box">
+        <a href ="/"><strong><font size='4'>商品名称</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/la"><strong><font size='4'>商品标签</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/lo"><strong><font size='4'>商品logo</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/im"><strong><font size='4'>商品图片</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/sh"><strong><font size='4'>商品店铺</font></strong></a>
+    </div>
+    <div class="get">
+    <form action='/imresult' method='post' enctype='multipart/form-data'>
+        <br>
+        <span>&emsp;&emsp;</span>
+        <input type='file' name='file' style="width: 200px; height: 30px;">
+        <input type='submit' value='上传商品图片' style="width: 110px; height: 23px; color:black;">
+    </form>
+    </div>
+</body>
+</html> 

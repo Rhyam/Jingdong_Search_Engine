@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never" />
+    <title>Results</title>
+    <!--采用内部样式进行区块排列以及设置尺寸等内容-->
+    <!--box中小区域的尺寸以及排列-->
+    <!--图片的显示样式-->
+    <style type="text/css">
+        body
+        {
+            background-image: url(../static/background2.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        a, a:hover
+        {
+            text-decoration: none;
+            color: #CD5C5C;
+        }
+        .head{position: fixed; top: 0px; left: 0px; float: left; width:100%; height:60px; background-color: white;}
+        .intro{top: 60px; float: left; width: 100%; height: 70px;}
+        .box{width: 100%; margin: 50px auto; overflow: hidden;}
+        .area{width:1000px;margin: 50px auto; overflow: hidden;display:flex;flex-direction:row;
+              background: white; background: rgb(255, 255, 255, 0.5);}
+        .imarea{
+            width:300px;
+            margin-left: 25px;
+            float:left;
+        }
+        .imarea img{
+            display:block;
+            width: 100%;
+        }
+        .content{
+            float:left;
+            width:1200px;
+        }
+    </style>
+</head>
+<body>
+    <!--头部区域-->
+    <div class= "head">
+        <span>&emsp;</span><h6 style="display: inline;"><font size='5'>东川路杂货铺</font></h6><span>&emsp;&emsp;</span>
+        <a href ="/"><strong><font size='3'>商品名称</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/la"><strong><font size='3'>商品标签</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/lo"><strong><font size='3'>商品logo</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/im"><strong><font size='3'>商品图片</font></strong></a><span>&emsp;&emsp;</span>
+        <a href ="/sh"><strong><font size='4'>商品店铺</font></strong></a>
+        <br><span>&emsp;</span>
+        <form action='/imresult' method='post' enctype='multipart/form-data' style="display: inline;">
+            <input type='file' name='file'>
+            <input type='submit' value='上传商品图片'>
+        </form>
+    </div>
+    <div class="intro">
+        <h6 style="padding-top: 40px; padding-left: 120px;"><font size='4'>为您匹配到相似商品：</font></h6>
+    </div>
+    <div class="box">
+        <!--设置小区域包裹图片以及相关内容-->
+        {% for item in search_list_3 %}
+            <div class="area">
+                <div class="imarea">
+                    <img src={{item | two}}>
+                </div> 
+                <div class="content">
+                    <font size="3">
+                        <span style="color: #8A2BE2">{{item | eight}}</span>
+                    </font>
+                    </br>
+                    <br>
+                    <strong>商品名</strong>：<span><a href ={{item | six}} >{{ item | one}}</a></span>
+                    <br>
+                    <p>
+                        店铺：<span><a href ={{item | ten}}>{{item | seven}}</a></span> 
+                    </p>
+                    <p> 
+                        &emsp;&emsp;<strong>当前价格</strong>： <span style="color:red;">{{item | three}}</span>&emsp;&emsp;
+                        参考价格： <span style="color: gray;">{{item|four}}</span>&emsp;&emsp;
+                        历史高价： <span style="color: green;">{{item|five}}</span>
+                    </p>
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            
+        {% endfor %}
+    </div>
+    
+</body>
+</html> 
